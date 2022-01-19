@@ -2,7 +2,7 @@ provider "aws" {
   region = var.region
 }
 
-/*data "aws_ami" "ubuntu" {
+data "aws_ami" "ubuntu" {
   most_recent = true
 
   filter {
@@ -16,11 +16,11 @@ provider "aws" {
   }
 
   owners = ["099720109477"] # Canonical
-}*/
+}
 
 resource "aws_instance" "ubuntu" {
- // ami           = data.aws_ami.ubuntu.id
-  ami           = "ami-02d03ce209db75523"
+  ami           = data.aws_ami.ubuntu.id
+  //ami           = "ami-02d03ce209db75523"
   instance_type = var.instance_type
 
   tags = {
